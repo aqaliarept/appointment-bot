@@ -13,6 +13,22 @@ A Telegram bot that monitors appointment availability and notifies users when sl
 
 ## Setup
 
+### Running with Docker
+
+1. Pull the latest image:
+
+```bash
+docker pull ghcr.io/aqaliarept/appointment-bot:latest
+```
+
+2. Run the bot with your Telegram token:
+
+```bash
+docker run -e TELEGRAM_BOT_TOKEN=your_bot_token_here ghcr.io/aqaliarept/appointment-bot:latest
+```
+
+### Running locally
+
 1. Clone the repository:
 
 ```bash
@@ -57,6 +73,13 @@ The bot is written in Go and uses:
 
 - [go-telegram-bot-api](https://github.com/go-telegram-bot-api/telegram-bot-api) for Telegram integration
 - [godotenv](https://github.com/joho/godotenv) for environment variable management
+
+### Building Docker image locally
+
+```bash
+docker build -t appointment-bot .
+docker run -e TELEGRAM_BOT_TOKEN=your_bot_token_here appointment-bot
+```
 
 ## License
 
