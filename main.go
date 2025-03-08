@@ -77,17 +77,27 @@ func NewAppointmentChecker(bot *tgbotapi.BotAPI) *AppointmentChecker {
 		log.Fatalf("Failed to setup logger: %v", err)
 	}
 
+	// Get check interval from environment variable or use default
+	checkInterval := 10 * time.Minute // default 10 minutes
+	if envInterval := os.Getenv("CHECK_INTERVAL"); envInterval != "" {
+		if duration, err := time.ParseDuration(envInterval); err == nil {
+			checkInterval = duration
+		} else {
+			logger.Printf("Warning: Invalid CHECK_INTERVAL format '%s', using default 10m", envInterval)
+		}
+	}
+
 	ac := &AppointmentChecker{
 		bot:            bot,
 		client:         &http.Client{Timeout: 30 * time.Second},
-		checkInterval:  1 * time.Minute, // Check every minute for changes
+		checkInterval:  checkInterval,
 		users:          make(map[int64]bool),
 		autoCheckUsers: make(map[int64]bool),
 		logger:         logger,
 	}
 
 	if bot != nil {
-		ac.logger.Printf("Bot initialized with username: @%s", bot.Self.UserName)
+		ac.logger.Printf("Bot initialized with username: @%s and check interval: %v", bot.Self.UserName, checkInterval)
 	}
 	return ac
 }

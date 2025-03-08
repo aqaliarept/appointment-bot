@@ -29,6 +29,9 @@ RUN adduser -D -g '' appuser && \
 
 USER appuser
 
+# Environment variables
+ENV CHECK_INTERVAL=10m
+
 # Command to run the application
 ENTRYPOINT ["/app/bot"]
 CMD ["-bot"] 

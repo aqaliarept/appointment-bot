@@ -10,6 +10,7 @@ A Telegram bot that monitors appointment availability and notifies users when sl
 - Support for multiple users
 - Manual availability checks
 - Detailed logging
+- Configurable check interval
 
 ## Setup
 
@@ -21,10 +22,47 @@ A Telegram bot that monitors appointment availability and notifies users when sl
 docker pull ghcr.io/aqaliarept/appointment-bot:latest
 ```
 
-2. Run the bot with your Telegram token:
+2. Run the bot with your Telegram token (in detached mode):
 
 ```bash
-docker run -e TELEGRAM_BOT_TOKEN=your_bot_token_here ghcr.io/aqaliarept/appointment-bot:latest
+docker run -d --name appointment-bot -e TELEGRAM_BOT_TOKEN=your_bot_token_here ghcr.io/aqaliarept/appointment-bot:latest
+```
+
+You can configure the check interval using the `CHECK_INTERVAL` environment variable:
+
+```bash
+# Check every 5 minutes
+docker run -d --name appointment-bot \
+  -e TELEGRAM_BOT_TOKEN=your_bot_token_here \
+  -e CHECK_INTERVAL=5m \
+  ghcr.io/aqaliarept/appointment-bot:latest
+
+# Check every 30 minutes
+docker run -d --name appointment-bot \
+  -e TELEGRAM_BOT_TOKEN=your_bot_token_here \
+  -e CHECK_INTERVAL=30m \
+  ghcr.io/aqaliarept/appointment-bot:latest
+```
+
+### Managing the Docker container
+
+```bash
+# View logs
+docker logs appointment-bot
+# Follow logs in real-time
+docker logs -f appointment-bot
+
+# Stop the bot
+docker stop appointment-bot
+
+# Start the bot again
+docker start appointment-bot
+
+# Remove the container
+docker rm appointment-bot
+
+# View container status
+docker ps -a | grep appointment-bot
 ```
 
 ### Running locally
@@ -40,6 +78,7 @@ cd appointment-bot
 
 ```bash
 TELEGRAM_BOT_TOKEN=your_bot_token_here
+CHECK_INTERVAL=10m  # Optional, defaults to 10 minutes
 ```
 
 3. Run the bot:
@@ -51,6 +90,13 @@ go run main.go -bot
 # Run once to check current availability
 go run main.go
 ```
+
+## Environment Variables
+
+| Variable             | Description                          | Default  | Example Values                              |
+| -------------------- | ------------------------------------ | -------- | ------------------------------------------- |
+| `TELEGRAM_BOT_TOKEN` | Your Telegram bot token              | Required | `123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11` |
+| `CHECK_INTERVAL`     | Interval between availability checks | `10m`    | `30s`, `5m`, `1h`                           |
 
 ## Bot Commands
 
@@ -77,8 +123,14 @@ The bot is written in Go and uses:
 ### Building Docker image locally
 
 ```bash
+# Build the image
 docker build -t appointment-bot .
-docker run -e TELEGRAM_BOT_TOKEN=your_bot_token_here appointment-bot
+
+# Run in detached mode
+docker run -d --name appointment-bot \
+  -e TELEGRAM_BOT_TOKEN=your_bot_token_here \
+  -e CHECK_INTERVAL=5m \
+  appointment-bot
 ```
 
 ## License
