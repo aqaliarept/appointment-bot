@@ -133,6 +133,57 @@ docker run -d --name appointment-bot \
   appointment-bot
 ```
 
+### Testing the API
+
+The bot checks two different appointment types using the Microsoft Bookings API. You can test these endpoints using the provided script:
+
+```bash
+# Make the script executable
+chmod +x test-api.sh
+
+# Run the tests
+./test-api.sh
+```
+
+The script will make requests to both appointment types and display the responses. Make sure you have `curl` and `jq` installed:
+
+```bash
+# macOS (using Homebrew)
+brew install jq
+
+# Ubuntu/Debian
+sudo apt-get install jq
+
+# CentOS/RHEL
+sudo yum install jq
+```
+
+Example API Response:
+
+```json
+{
+  "staffAvailabilityResponse": [
+    {
+      "staffId": "...",
+      "availabilityItems": [
+        {
+          "status": "BOOKINGSAVAILABILITYSTATUS_AVAILABLE",
+          "startDateTime": {
+            "dateTime": "2024-01-15T09:00:00.0000000",
+            "timeZone": "FLE Standard Time"
+          },
+          "endDateTime": {
+            "dateTime": "2024-01-15T09:30:00.0000000",
+            "timeZone": "FLE Standard Time"
+          },
+          "availableCount": 1
+        }
+      ]
+    }
+  ]
+}
+```
+
 ## License
 
 MIT License
