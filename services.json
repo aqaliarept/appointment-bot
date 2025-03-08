@@ -1,0 +1,504 @@
+{
+  "service": [
+    {
+      "title": "Haastattelu LA",
+      "additionalInfo": "\u003cdiv style=\"font-family:&quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif;font-size:14px;color:rgb(200, 38, 19)\"\u003e1-5 päiv\u003c/div\u003e",
+      "defaultLocation": {
+        "address": {
+          "postOfficeBox": "",
+          "postalCode": "",
+          "countryOrRegion": "",
+          "state": "",
+          "city": "",
+          "street": "",
+          "type": "",
+          "name": "Microsoft Teams -kokous",
+          "locationSource": "LOCATION_SOURCE_TYPE_DEVICE"
+        },
+        "coordinates": {
+          "accuracy": 0,
+          "altitude": 0,
+          "altitudeAccuracy": 0,
+          "latitude": 0,
+          "longitude": 0
+        },
+        "displayName": "Microsoft Teams -kokous",
+        "locationEmailAddress": "",
+        "locationType": "default",
+        "locationUri": ""
+      },
+      "serviceId": "51b3c1e4-2dc8-46ab-88e3-604cb4164c4c",
+      "webUrl": "https://outlook.office.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/s/5MGzUcgtq0aI42BMtBZMTA2",
+      "staffMemberIds": ["84d3f0dd-33f9-4d2d-a741-98b86e790315"],
+      "smsNotificationsEnabled": false,
+      "notes": "",
+      "maximumAttendeesCount": 1,
+      "isLocationOnline": true,
+      "isHiddenFromCustomers": false,
+      "description": "Tampereen kaupungin Sijaisrekisteri, Teams-haastattelu. Haastattelussa käydään läpi osaamiset, haetut tehtävät, sijaisuuksien toivotut alueet sekä sijaisuustarjouksien vastaanottaminen ja hyväksyminen.\n\n",
+      "defaultDuration": "PT30M",
+      "preBuffer": "PT0S",
+      "postBuffer": "PT0S",
+      "defaultPrice": 0,
+      "defaultPriceType": "SERVICEDEFAULTPRICETYPES_FREE",
+      "bookingsSchedulingPolicy": {
+        "allowStaffSelection": false,
+        "maximumAdvance": "P7D",
+        "minimumLeadTime": "PT2H",
+        "sendConfirmationsToOwner": true,
+        "timeSlotInterval": "PT1H",
+        "hasCustomServiceWindows": true,
+        "bookingServiceWindows": [
+          {
+            "startDate": "",
+            "endDate": "",
+            "bookableHours": []
+          }
+        ],
+        "sendMeetingInviteToCustomer": true
+      },
+      "customQuestions": [],
+      "defaultReminders": {
+        "message": "",
+        "offset": "PT0S",
+        "bookingsReminderRecipients": "BOOKINGSREMINDERRECIPIENTS_UNDEFINED"
+      },
+      "currencyIsoSymbol": "EUR",
+      "bookingsCustomerInformationRequirements": {
+        "name": "REQUIREMENT_LEVEL_REQUIRED",
+        "address": "REQUIREMENT_LEVEL_HIDDEN",
+        "phone": "REQUIREMENT_LEVEL_REQUIRED",
+        "email": "REQUIREMENT_LEVEL_REQUIRED",
+        "notes": "REQUIREMENT_LEVEL_HIDDEN",
+        "guestEmails": "REQUIREMENT_LEVEL_HIDDEN"
+      },
+      "bookingServiceLanguage": "",
+      "formattedDuration": "30 minutes",
+      "bookingServiceCategory": "BOOKING_SERVICE_CATEGORY_SCHEDULED",
+      "bookingServiceFormInfos": [],
+      "bookingMultiStaffSupportEnabled": false,
+      "staffGroups": [],
+      "emailReminders": [
+        {
+          "id": "eceb929a-abcf-4358-8164-bea8f35f5ada",
+          "reminderOffset": "1440",
+          "message": "",
+          "isOrganizerReminder": false,
+          "occurrenceChange": "BOOKING_SERVICE_EMAIL_REMINDER_CHANGE_TYPE_NONE",
+          "sendOption": "BOOKING_SERVICE_EMAIL_REMINDER_SEND_OPTION_CUSTOMER",
+          "subject": "",
+          "richTextMessage": "\u003cdiv style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14px; color: rgb(214, 214, 214);\"\u003eOlet varannut ajan Tampereen kaupungin sijaisrekisterin&nbsp;Teams-haastattelua&nbsp;varten. Mikäli aika ei enää sovi sinulle, pystyt perumaan aikasi 2h ennen varaamaasi aikaa. Peruutuslinkki löytyy aikaisemmin saamastasi varausvahvistuksesta.\u003c/div\u003e"
+        }
+      ],
+      "isWebrtcOnlineMeetingEnabled": true,
+      "serviceType": "BOOKING_SERVICE_TYPE_USER_DEFINED",
+      "isPrivate": false,
+      "ordinal": "AAAD",
+      "bookingUrlCodes": {},
+      "restrictionType": "BOOKING_SERVICE_RESTRICTION_PUBLIC",
+      "canCustomerManageTheirBooking": true,
+      "currencySymbol": "€",
+      "categoryNames": [],
+      "createTime": "2024-02-08T09:04:42.389242700Z",
+      "updateTime": "2025-03-07T10:21:51.120821Z",
+      "isPayEnabled": false
+    },
+    {
+      "title": "Haastattelu LP",
+      "additionalInfo": "\u003cdiv style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14px; color: rgb(214, 214, 214);\"\u003e\u003cbr\u003e\u003c/div\u003e",
+      "defaultLocation": {
+        "address": {
+          "postOfficeBox": "",
+          "postalCode": "",
+          "countryOrRegion": "",
+          "state": "",
+          "city": "",
+          "street": "",
+          "type": "",
+          "name": "",
+          "locationSource": "LOCATION_SOURCE_TYPE_NONE"
+        },
+        "coordinates": {
+          "accuracy": 0,
+          "altitude": 0,
+          "altitudeAccuracy": 0,
+          "latitude": 0,
+          "longitude": 0
+        },
+        "displayName": "",
+        "locationEmailAddress": "",
+        "locationType": "default",
+        "locationUri": ""
+      },
+      "serviceId": "0346e59e-984a-499d-9bbe-3834d910279b",
+      "webUrl": "https://outlook.office.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/s/nuVGA0qYnUmbvjg02RAnmw2",
+      "staffMemberIds": ["8797c63c-ec00-43ab-9426-ee12fadf1bf6"],
+      "smsNotificationsEnabled": false,
+      "notes": "",
+      "maximumAttendeesCount": 1,
+      "isLocationOnline": true,
+      "isHiddenFromCustomers": false,
+      "description": "Tampereen kaupungin Sijaisrekisteri, Teams-haastattelu. Haastattelussa käydään läpi osaamiset, haetut tehtävät, sijaisuuksien toivotut alueet sekä sijaisuustarjouksien vastaanottaminen ja hyväksyminen.\n\n",
+      "defaultDuration": "PT30M",
+      "preBuffer": "PT0S",
+      "postBuffer": "PT0S",
+      "defaultPrice": 0,
+      "defaultPriceType": "SERVICEDEFAULTPRICETYPES_FREE",
+      "bookingsSchedulingPolicy": {
+        "allowStaffSelection": false,
+        "maximumAdvance": "P10D",
+        "minimumLeadTime": "PT2H",
+        "sendConfirmationsToOwner": true,
+        "timeSlotInterval": "PT1H",
+        "hasCustomServiceWindows": true,
+        "bookingServiceWindows": [
+          {
+            "startDate": "",
+            "endDate": "",
+            "bookableHours": [
+              {
+                "day": "Sunday",
+                "timeSlots": []
+              },
+              {
+                "day": "Monday",
+                "timeSlots": []
+              },
+              {
+                "day": "Tuesday",
+                "timeSlots": []
+              },
+              {
+                "day": "Wednesday",
+                "timeSlots": []
+              },
+              {
+                "day": "Thursday",
+                "timeSlots": []
+              },
+              {
+                "day": "Friday",
+                "timeSlots": []
+              },
+              {
+                "day": "Saturday",
+                "timeSlots": []
+              }
+            ]
+          },
+          {
+            "startDate": "2025-03-03",
+            "endDate": "2025-03-06",
+            "bookableHours": [
+              {
+                "day": "Monday",
+                "timeSlots": [
+                  {
+                    "start": 540,
+                    "end": 570
+                  }
+                ]
+              },
+              {
+                "day": "Tuesday",
+                "timeSlots": [
+                  {
+                    "start": 540,
+                    "end": 570
+                  }
+                ]
+              },
+              {
+                "day": "Wednesday",
+                "timeSlots": [
+                  {
+                    "start": 540,
+                    "end": 570
+                  }
+                ]
+              },
+              {
+                "day": "Thursday",
+                "timeSlots": [
+                  {
+                    "start": 540,
+                    "end": 570
+                  }
+                ]
+              },
+              {
+                "day": "Friday",
+                "timeSlots": []
+              },
+              {
+                "day": "Saturday",
+                "timeSlots": []
+              },
+              {
+                "day": "Sunday",
+                "timeSlots": []
+              }
+            ]
+          }
+        ],
+        "sendMeetingInviteToCustomer": true
+      },
+      "customQuestions": [],
+      "defaultReminders": {
+        "message": "",
+        "offset": "PT0S",
+        "bookingsReminderRecipients": "BOOKINGSREMINDERRECIPIENTS_UNDEFINED"
+      },
+      "currencyIsoSymbol": "EUR",
+      "bookingsCustomerInformationRequirements": {
+        "name": "REQUIREMENT_LEVEL_REQUIRED",
+        "address": "REQUIREMENT_LEVEL_OPTIONAL",
+        "phone": "REQUIREMENT_LEVEL_OPTIONAL",
+        "email": "REQUIREMENT_LEVEL_OPTIONAL",
+        "notes": "REQUIREMENT_LEVEL_OPTIONAL",
+        "guestEmails": "REQUIREMENT_LEVEL_HIDDEN"
+      },
+      "bookingServiceLanguage": "",
+      "formattedDuration": "30 minutes",
+      "bookingServiceCategory": "BOOKING_SERVICE_CATEGORY_SCHEDULED",
+      "bookingServiceFormInfos": [],
+      "bookingMultiStaffSupportEnabled": false,
+      "staffGroups": [],
+      "emailReminders": [
+        {
+          "id": "19255c3d-baff-475d-81fd-5881f50d8353",
+          "reminderOffset": "1440",
+          "message": "",
+          "isOrganizerReminder": false,
+          "occurrenceChange": "BOOKING_SERVICE_EMAIL_REMINDER_CHANGE_TYPE_NONE",
+          "sendOption": "BOOKING_SERVICE_EMAIL_REMINDER_SEND_OPTION_CUSTOMER",
+          "subject": "",
+          "richTextMessage": "\u003cdiv style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14px; color: rgb(214, 214, 214);\"\u003eOlet varannut ajan Tampereen kaupungin sijaisrekisterin&nbsp;Teams-haastattelua&nbsp;varten. Mikäli aika ei enää sovi sinulle, pystyt perumaan aikasi 2h ennen varaamaasi aikaa. Peruutuslinkki löytyy aikaisemmin saamastasi varausvahvistuksesta.\u003c/div\u003e"
+        },
+        {
+          "id": "0b5800d5-aae7-4c8b-941c-6336e70b83a4",
+          "reminderOffset": "-15",
+          "message": "",
+          "isOrganizerReminder": false,
+          "occurrenceChange": "BOOKING_SERVICE_EMAIL_REMINDER_CHANGE_TYPE_NONE",
+          "sendOption": "BOOKING_SERVICE_EMAIL_REMINDER_SEND_OPTION_CUSTOMER",
+          "subject": "",
+          "richTextMessage": "\u003cdiv\u003eKiitos ajastasi. \u003ca href=\"https://outlook.office365.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/?RefID=FollowUpEmail\" title=\"https://outlook.office365.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/?RefID=FollowUpEmail\" target=\"_blank\"\u003eVaraa seuraava tapaaminen.\u003c/a\u003e\u003c/div\u003e"
+        }
+      ],
+      "isWebrtcOnlineMeetingEnabled": true,
+      "serviceType": "BOOKING_SERVICE_TYPE_USER_DEFINED",
+      "isPrivate": false,
+      "ordinal": "AAAP",
+      "bookingUrlCodes": {},
+      "restrictionType": "BOOKING_SERVICE_RESTRICTION_PUBLIC",
+      "canCustomerManageTheirBooking": true,
+      "currencySymbol": "€",
+      "categoryNames": [],
+      "createTime": "2023-10-16T09:15:19.823574Z",
+      "updateTime": "2025-03-06T09:42:12.430723900Z",
+      "isPayEnabled": false
+    },
+    {
+      "title": "Haastattelu VK",
+      "additionalInfo": "\u003cdiv style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14px; color: rgb(214, 214, 214);\"\u003e\u003cbr\u003e\u003c/div\u003e",
+      "defaultLocation": {
+        "address": {
+          "postOfficeBox": "",
+          "postalCode": "",
+          "countryOrRegion": "",
+          "state": "",
+          "city": "",
+          "street": "",
+          "type": "",
+          "name": "Microsoft Teams -kokous",
+          "locationSource": "LOCATION_SOURCE_TYPE_DEVICE"
+        },
+        "coordinates": {
+          "accuracy": 0,
+          "altitude": 0,
+          "altitudeAccuracy": 0,
+          "latitude": 0,
+          "longitude": 0
+        },
+        "displayName": "Microsoft Teams -kokous",
+        "locationEmailAddress": "",
+        "locationType": "default",
+        "locationUri": ""
+      },
+      "serviceId": "1df7f565-8337-412b-91ec-b8ffd49fe6f2",
+      "webUrl": "https://outlook.office.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/s/ZfX3HTeDK0GR7Lj_1J_m8g2",
+      "staffMemberIds": ["4f3b2516-99cd-4295-9328-afefb3b403e3"],
+      "smsNotificationsEnabled": false,
+      "notes": "",
+      "maximumAttendeesCount": 1,
+      "isLocationOnline": true,
+      "isHiddenFromCustomers": false,
+      "description": "Tampereen kaupungin Sijaisrekisteri, Teams-haastattelu. Haastattelussa käydään läpi osaamiset, haetut tehtävät, sijaisuuksien toivotut alueet sekä sijaisuustarjouksien vastaanottaminen ja hyväksyminen.\n\n",
+      "defaultDuration": "PT30M",
+      "preBuffer": "PT0S",
+      "postBuffer": "PT0S",
+      "defaultPrice": 0,
+      "defaultPriceType": "SERVICEDEFAULTPRICETYPES_FREE",
+      "bookingsSchedulingPolicy": {
+        "allowStaffSelection": false,
+        "maximumAdvance": "P10D",
+        "minimumLeadTime": "PT2H",
+        "sendConfirmationsToOwner": false,
+        "timeSlotInterval": "PT1H",
+        "hasCustomServiceWindows": true,
+        "bookingServiceWindows": [
+          {
+            "startDate": "",
+            "endDate": "",
+            "bookableHours": [
+              {
+                "day": "Sunday",
+                "timeSlots": []
+              },
+              {
+                "day": "Monday",
+                "timeSlots": []
+              },
+              {
+                "day": "Tuesday",
+                "timeSlots": []
+              },
+              {
+                "day": "Wednesday",
+                "timeSlots": []
+              },
+              {
+                "day": "Thursday",
+                "timeSlots": []
+              },
+              {
+                "day": "Friday",
+                "timeSlots": []
+              },
+              {
+                "day": "Saturday",
+                "timeSlots": []
+              }
+            ]
+          },
+          {
+            "startDate": "2025-02-11",
+            "endDate": "2025-02-12",
+            "bookableHours": [
+              {
+                "day": "Monday",
+                "timeSlots": [
+                  {
+                    "start": 630,
+                    "end": 660
+                  }
+                ]
+              },
+              {
+                "day": "Tuesday",
+                "timeSlots": [
+                  {
+                    "start": 570,
+                    "end": 600
+                  },
+                  {
+                    "start": 630,
+                    "end": 660
+                  }
+                ]
+              },
+              {
+                "day": "Wednesday",
+                "timeSlots": [
+                  {
+                    "start": 750,
+                    "end": 780
+                  }
+                ]
+              },
+              {
+                "day": "Thursday",
+                "timeSlots": [
+                  {
+                    "start": 570,
+                    "end": 600
+                  },
+                  {
+                    "start": 750,
+                    "end": 780
+                  }
+                ]
+              },
+              {
+                "day": "Friday",
+                "timeSlots": [
+                  {
+                    "start": 570,
+                    "end": 600
+                  }
+                ]
+              },
+              {
+                "day": "Saturday",
+                "timeSlots": []
+              },
+              {
+                "day": "Sunday",
+                "timeSlots": []
+              }
+            ]
+          }
+        ],
+        "sendMeetingInviteToCustomer": true
+      },
+      "customQuestions": [],
+      "defaultReminders": {
+        "message": "",
+        "offset": "PT0S",
+        "bookingsReminderRecipients": "BOOKINGSREMINDERRECIPIENTS_UNDEFINED"
+      },
+      "currencyIsoSymbol": "EUR",
+      "bookingsCustomerInformationRequirements": {
+        "name": "REQUIREMENT_LEVEL_REQUIRED",
+        "address": "REQUIREMENT_LEVEL_HIDDEN",
+        "phone": "REQUIREMENT_LEVEL_REQUIRED",
+        "email": "REQUIREMENT_LEVEL_REQUIRED",
+        "notes": "REQUIREMENT_LEVEL_HIDDEN",
+        "guestEmails": "REQUIREMENT_LEVEL_HIDDEN"
+      },
+      "bookingServiceLanguage": "fi-FI",
+      "formattedDuration": "30 minutes",
+      "bookingServiceCategory": "BOOKING_SERVICE_CATEGORY_SCHEDULED",
+      "bookingServiceFormInfos": [],
+      "bookingMultiStaffSupportEnabled": false,
+      "staffGroups": [],
+      "emailReminders": [
+        {
+          "id": "18014d21-18d1-4d11-aada-ace2a21ab1ce",
+          "reminderOffset": "1440",
+          "message": "",
+          "isOrganizerReminder": false,
+          "occurrenceChange": "BOOKING_SERVICE_EMAIL_REMINDER_CHANGE_TYPE_NONE",
+          "sendOption": "BOOKING_SERVICE_EMAIL_REMINDER_SEND_OPTION_CUSTOMER",
+          "subject": "",
+          "richTextMessage": "\u003cdiv style=\"font-family: &quot;Segoe UI&quot;, &quot;Segoe UI Web (West European)&quot;, &quot;Segoe UI&quot;, -apple-system, BlinkMacSystemFont, Roboto, &quot;Helvetica Neue&quot;, sans-serif; font-size: 14px; color: rgb(214, 214, 214);\"\u003eOlet varannut ajan Tampereen kaupungin sijaisrekisterin&nbsp;Teams-haastattelua&nbsp;varten. Mikäli aika ei enää sovi sinulle, pystyt perumaan aikasi 2h ennen varaamaasi aikaa. Peruutuslinkki löytyy aikaisemmin saamastasi varausvahvistuksesta.\u003c/div\u003e"
+        }
+      ],
+      "isWebrtcOnlineMeetingEnabled": true,
+      "serviceType": "BOOKING_SERVICE_TYPE_USER_DEFINED",
+      "isPrivate": false,
+      "ordinal": "AD8=",
+      "bookingUrlCodes": {},
+      "restrictionType": "BOOKING_SERVICE_RESTRICTION_PUBLIC",
+      "canCustomerManageTheirBooking": false,
+      "currencySymbol": "€",
+      "categoryNames": [],
+      "createTime": "2022-02-28T09:36:30.348461300Z",
+      "updateTime": "2025-03-06T09:41:58.790191200Z",
+      "isPayEnabled": false
+    }
+  ],
+  "count": 0,
+  "nextSkipToken": ""
+}

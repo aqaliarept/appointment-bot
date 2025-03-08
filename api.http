@@ -9,3 +9,9 @@ content-type: application/json
 
 {"serviceId":"51b3c1e4-2dc8-46ab-88e3-604cb4164c4c","staffIds":["84d3f0dd-33f9-4d2d-a741-98b86e790315"],"startDateTime":{"dateTime":"2025-03-07T00:00:00","timeZone":"FLE Standard Time"},"endDateTime":{"dateTime":"2025-04-02T00:00:00","timeZone":"FLE Standard Time"}}
 
+###
+POST https://outlook.office365.com/BookingsService/api/V1/bookingBusinessesc2/monetrapirkanmaarekrytointipalvelut@monetra.fi/services?app=BookingsC2&n=4
+content-type: application/json
+
+{"queryOptions":{"filter":{"or":{"filters":[{"attributeFilter":{"attributeName":"BookingServiceCategory","operator":"FILTER_OPERATOR_TYPE_EQUAL","stringValue":"BOOKING_SERVICE_CATEGORY_SCHEDULED"}},{"attributeFilter":{"attributeName":"BookingServiceCategory","operator":"FILTER_OPERATOR_TYPE_EQUAL","stringValue":"BOOKING_SERVICE_CATEGORY_ON_DEMAND"}}]}}}}
+

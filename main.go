@@ -47,6 +47,19 @@ type AvailabilityResponse struct {
 	} `json:"staffAvailabilityResponse"`
 }
 
+// Service represents a bookable service
+type Service struct {
+	Title          string   `json:"title"`
+	ServiceID      string   `json:"serviceId"`
+	StaffMemberIDs []string `json:"staffMemberIds"`
+	Description    string   `json:"description"`
+}
+
+// ServicesResponse represents the response from the services API
+type ServicesResponse struct {
+	Services []Service `json:"service"`
+}
+
 // MessageSender is an interface for sending messages
 type MessageSender interface {
 	Send(c tgbotapi.Chattable) (tgbotapi.Message, error)
@@ -106,10 +119,42 @@ func NewAppointmentChecker(bot *tgbotapi.BotAPI) *AppointmentChecker {
 type AvailabilityResult struct {
 	Available     bool
 	AvailableSlot *AvailabilityItem
+	ServiceName   string
 }
 
 func (ac *AppointmentChecker) logUserAction(chatID int64, action, details string) {
 	ac.logger.Printf("User %d: %s - %s", chatID, action, details)
+}
+
+// loadServices loads available services from the API
+func (ac *AppointmentChecker) loadServices() (*ServicesResponse, error) {
+	ac.logger.Printf("Loading available services")
+
+	url := "https://outlook.office365.com/BookingsService/api/V1/bookingBusinessesc2/monetrapirkanmaarekrytointipalvelut@monetra.fi/services?app=BookingsC1"
+	request, err := http.NewRequest("GET", url, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	request.Header.Set("Content-Type", "application/json")
+
+	resp, err := ac.client.Do(request)
+	if err != nil {
+		return nil, err
+	}
+	defer resp.Body.Close()
+
+	if resp.StatusCode != http.StatusOK {
+		return nil, fmt.Errorf("API returned status code: %d", resp.StatusCode)
+	}
+
+	var response ServicesResponse
+	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
+		return nil, fmt.Errorf("failed to decode response: %v", err)
+	}
+
+	ac.logger.Printf("Loaded %d services", len(response.Services))
+	return &response, nil
 }
 
 func (ac *AppointmentChecker) checkAvailability() (AvailabilityResult, error) {
@@ -119,51 +164,51 @@ func (ac *AppointmentChecker) checkAvailability() (AvailabilityResult, error) {
 	startDate := time.Date(now.Year(), now.Month(), now.Day(), 0, 0, 0, 0, now.Location())
 	endDate := startDate.AddDate(0, 2, 0)
 
-	// First appointment type
-	req1 := AvailabilityRequest{
-		ServiceID: "1df7f565-8337-412b-91ec-b8ffd49fe6f2",
-		StaffIDs:  []string{"4f3b2516-99cd-4295-9328-afefb3b403e3"},
-		StartDateTime: TimeZoneDateTime{
-			DateTime: startDate.Format("2006-01-02T15:04:05"),
-			TimeZone: "FLE Standard Time",
-		},
-		EndDateTime: TimeZoneDateTime{
-			DateTime: endDate.Format("2006-01-02T15:04:05"),
-			TimeZone: "FLE Standard Time",
-		},
-	}
-
-	// Second appointment type
-	req2 := AvailabilityRequest{
-		ServiceID: "51b3c1e4-2dc8-46ab-88e3-604cb4164c4c",
-		StaffIDs:  []string{"84d3f0dd-33f9-4d2d-a741-98b86e790315"},
-		StartDateTime: TimeZoneDateTime{
-			DateTime: startDate.Format("2006-01-02T15:04:05"),
-			TimeZone: "FLE Standard Time",
-		},
-		EndDateTime: TimeZoneDateTime{
-			DateTime: endDate.Format("2006-01-02T15:04:05"),
-			TimeZone: "FLE Standard Time",
-		},
-	}
-
-	available1, err := ac.checkEndpoint(req1)
+	// Load available services
+	services, err := ac.loadServices()
 	if err != nil {
-		return AvailabilityResult{}, fmt.Errorf("error checking first endpoint: %v", err)
+		return AvailabilityResult{}, fmt.Errorf("error loading services: %v", err)
 	}
 
-	available2, err := ac.checkEndpoint(req2)
-	if err != nil {
-		return AvailabilityResult{}, fmt.Errorf("error checking second endpoint: %v", err)
+	// Check each service
+	for _, service := range services.Services {
+		ac.logger.Printf("Checking service: %s (ID: %s)", service.Title, service.ServiceID)
+
+		req := AvailabilityRequest{
+			ServiceID: service.ServiceID,
+			StaffIDs:  service.StaffMemberIDs,
+			StartDateTime: TimeZoneDateTime{
+				DateTime: startDate.Format("2006-01-02T15:04:05"),
+				TimeZone: "FLE Standard Time",
+			},
+			EndDateTime: TimeZoneDateTime{
+				DateTime: endDate.Format("2006-01-02T15:04:05"),
+				TimeZone: "FLE Standard Time",
+			},
+		}
+
+		available, err := ac.checkEndpoint(req)
+		if err != nil {
+			ac.logger.Printf("Error checking service %s: %v", service.Title, err)
+			continue
+		}
+
+		if available {
+			ac.logger.Printf("Availability check completed in %v. Found available slot in service: %s",
+				time.Since(startTime), service.Title)
+			return AvailabilityResult{
+				Available:     true,
+				AvailableSlot: ac.lastAvailableSlot,
+				ServiceName:   service.Title,
+			}, nil
+		}
 	}
 
-	result := AvailabilityResult{
-		Available:     available1 || available2,
-		AvailableSlot: ac.lastAvailableSlot,
-	}
-
-	ac.logger.Printf("Availability check completed in %v. Available: %v", time.Since(startTime), result.Available)
-	return result, nil
+	ac.logger.Printf("Availability check completed in %v. No available slots found", time.Since(startTime))
+	return AvailabilityResult{
+		Available:     false,
+		AvailableSlot: nil,
+	}, nil
 }
 
 func (ac *AppointmentChecker) checkEndpoint(req AvailabilityRequest) (bool, error) {
@@ -356,12 +401,14 @@ func (ac *AppointmentChecker) formatAvailabilityMessage(result AvailabilityResul
 	if result.Available {
 		if result.AvailableSlot != nil {
 			startTime, _ := time.Parse(time.RFC3339, result.AvailableSlot.StartDateTime.DateTime)
-			return fmt.Sprintf("🎉 Appointments are available!\n\nNext available appointment:\nDate: %s\nTime: %s\nAvailable slots: %d\n\nBooking website: https://outlook.office365.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/",
+			return fmt.Sprintf("🎉 Appointments are available for %s!\n\nNext available appointment:\nDate: %s\nTime: %s\nAvailable slots: %d\n\nBooking website: https://outlook.office365.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/",
+				result.ServiceName,
 				startTime.Format("Monday, January 2, 2006"),
 				startTime.Format("15:04"),
 				result.AvailableSlot.AvailableCount)
 		}
-		return "🎉 Appointments are available!\n\nBooking website: https://outlook.office365.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/"
+		return fmt.Sprintf("🎉 Appointments are available for %s!\n\nBooking website: https://outlook.office365.com/owa/calendar/monetrapirkanmaarekrytointipalvelut@monetra.fi/bookings/",
+			result.ServiceName)
 	}
 
 	if isManualCheck {
